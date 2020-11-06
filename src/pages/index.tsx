@@ -1,27 +1,28 @@
-import { useState, useEffect } from "react";
+import { useQuery, graphql } from "magiql";
+import { pages_index_Query } from "../generated/pages_index_Query.graphql";
 
-function useRandomNumber() {
-  const [ number, setNumber ] = useState<number>();
-
-  useEffect(
-    () => {
-      fetch("/api/randomNumber")
-        .then(response => response.text())
-        .then(text => setNumber(+text));
-    },
-    []
-  );
-
-  return number;
-}
+const query = graphql`
+  query pages_index_Query {
+    users {
+      id
+      firstName
+    }
+  }
+`;
 
 const Home = () => {
-  const number = useRandomNumber();
+  const { data } = useQuery<pages_index_Query>(query);
+
   return (
-    <p>
-      Random Number: {number}
-    </p>
-  )
+    <div>
+      {data?.users.map((u) => (
+        <>
+          <h2>{u.id}</h2>
+          <p>{u.firstName}</p>
+        </>
+      ))}
+    </div>
+  );
 };
 
-export default Home
+export default Home;

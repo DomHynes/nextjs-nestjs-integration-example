@@ -1,6 +1,7 @@
 {
   "presets": ["next/babel"],
   "plugins": [
+    "magiql/babel",
     ["@babel/plugin-proposal-decorators", { "legacy": true }]
   ]
 }
