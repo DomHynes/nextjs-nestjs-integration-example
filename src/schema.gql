@@ -4,10 +4,14 @@
 
 type User {
   id: String!
-  firstName: String!
-  lastName: String!
+  firstName: String
+  lastName: String
 }
 
 type Query {
-  users: [User!]!
+  getUsers: [User!]!
+}
+
+type Mutation {
+  createUser: User!
 }

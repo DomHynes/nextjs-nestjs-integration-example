@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "test",
+            "database": "${workspaceFolder:nextjs-nestjs-integration-example}/test"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

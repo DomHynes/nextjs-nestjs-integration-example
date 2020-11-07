@@ -7,7 +7,6 @@ export type pages_index_QueryVariables = {};
 export type pages_index_QueryResponse = {
     readonly users: ReadonlyArray<{
         readonly id: string;
-        readonly firstName: string;
     }>;
 };
 export type pages_index_Query = {
@@ -17,9 +16,8 @@ export type pages_index_Query = {
 
 /**QUERY**
 query pages_index_Query {
-  users {
+  users: getUsers {
     id
-    firstName
   }
 }
 ****/
@@ -27,9 +25,8 @@ query pages_index_Query {
 
 /*
 query pages_index_Query {
-  users {
+  users: getUsers {
     id
-    firstName
   }
 }
 */
@@ -37,11 +34,11 @@ query pages_index_Query {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "alias": null,
+    "alias": "users",
     "args": null,
     "concreteType": "User",
     "kind": "LinkedField",
-    "name": "users",
+    "name": "getUsers",
     "plural": true,
     "selections": [
       {
@@ -49,13 +46,6 @@ var v0 = [
         "args": null,
         "kind": "ScalarField",
         "name": "id",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "firstName",
         "storageKey": null
       }
     ],
@@ -80,15 +70,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "fabd60821111e2e46da5bd63aea2bad3",
+    "cacheID": "576170f7bc0564f841cc7750f7a763ef",
     "id": null,
     "metadata": {},
     "name": "pages_index_Query",
     "operationKind": "query",
-    "text": "query pages_index_Query {\n  users {\n    id\n    firstName\n  }\n}\n"
+    "text": "query pages_index_Query {\n  users: getUsers {\n    id\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = 'd9f48b7937d39322e588b37dfe1010c0';
-(node as any).query = "query pages_index_Query {\n  users {\n    id\n    firstName\n  }\n}\n"
+(node as any).hash = '658ffad6875c641cb3addd053195523e';
+(node as any).query = "query pages_index_Query {\n  users: getUsers {\n    id\n  }\n}\n"
 export default node;

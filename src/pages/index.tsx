@@ -3,9 +3,8 @@ import { pages_index_Query } from "../generated/pages_index_Query.graphql";
 
 const query = graphql`
   query pages_index_Query {
-    users {
+    users: getUsers {
       id
-      firstName
     }
   }
 `;
@@ -15,10 +14,9 @@ const Home = () => {
 
   return (
     <div>
-      {data?.users.map((u) => (
+      {data?.users?.map((u) => (
         <>
           <h2>{u.id}</h2>
-          <p>{u.firstName}</p>
         </>
       ))}
     </div>
