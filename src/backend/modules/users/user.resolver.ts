@@ -1,6 +1,6 @@
-import { Resolver, Query, Mutation } from "@nestjs/graphql";
-import { InjectConnection, InjectRepository } from "@nestjs/typeorm";
-import { Connection, Repository } from "typeorm";
+import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
 import { User } from "./user.entity";
 
 @Resolver(() => User)
@@ -13,6 +13,11 @@ export class UserResolver {
   @Query(() => [User])
   async getUsers() {
     return this.users.find();
+  }
+
+  @Query(() => User)
+  async getUser(@Args("id") id: string) {
+    return this.users.findOne(id);
   }
 
   @Mutation(() => User)

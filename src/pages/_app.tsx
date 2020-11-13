@@ -5,7 +5,7 @@ import GraphQLDevtools from "magiql/devtools";
 import { createRecoilStore } from "magiql/store/recoil";
 
 const client = new GraphQLClient({
-  endpoint: "api/graphql",
+  endpoint: "/api/graphql",
   onDebugEvent: (event) => {
     console.log(
       `${event.operation.request.node.operation.name} => ${event.source} ${event.message}`,

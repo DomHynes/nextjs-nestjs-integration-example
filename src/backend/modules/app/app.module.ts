@@ -4,7 +4,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { join } from "path";
 import ormconfig from "../../ormconfig";
 import { UserModule } from "../users/user.module";
-
+console.log(join(process.cwd(), "src/schema.gql"));
 @Module({
   imports: [
     UserModule,
